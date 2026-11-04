@@ -175,20 +175,11 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   
-  // Each score has its own colour: darker red means more difficulty.
+  // Low understanding is red so struggling subjects are easy to spot.
   Color _understandingColor(int understanding) {
-    switch (understanding) {
-      case 1:
-        return Colors.red.shade900;
-      case 2:
-        return const Color.fromARGB(255, 240, 21, 21);
-      case 3:
-        return Colors.orange;
-      case 4:
-        return const Color.fromARGB(255, 49, 155, 52);
-      default:
-        return Colors.green.shade900;
-    }
+    if (understanding <= 2) return Colors.red;
+    if (understanding == 3) return Colors.orange;
+    return Colors.green;
   }
 
   @override
