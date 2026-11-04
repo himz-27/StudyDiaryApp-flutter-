@@ -19,7 +19,6 @@ class _MainScreenState extends State<MainScreen> {
   bool _loadFailed = false;
   int _currentPage = 1;
   int _totalPages = 1;
-  int _totalLogs = 0;
 
   @override
   void initState() {
@@ -51,8 +50,6 @@ class _MainScreenState extends State<MainScreen> {
         _isLoading = false;
         _currentPage = targetPage;
         _totalPages = totalPages;
-        // The same count is reused for the session total in the welcome card.
-        _totalLogs = logCount;
       });
     } catch (_) {
       if (!mounted) return;
@@ -177,29 +174,21 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  // Low understanding is red so struggling subjects are easy to spot.
+  
   // Each score has its own colour: darker red means more difficulty.
   Color _understandingColor(int understanding) {
     switch (understanding) {
       case 1:
         return Colors.red.shade900;
       case 2:
-        return const Color.fromARGB(255, 238, 31, 16);
+        return const Color.fromARGB(255, 240, 21, 21);
       case 3:
         return Colors.orange;
       case 4:
-        return Colors.green;
+        return const Color.fromARGB(255, 49, 155, 52);
       default:
         return Colors.green.shade900;
     }
-  }
-
-  // Greeting changes with the time of day on the device.
-  String _greeting() {
-    final hour = DateTime.now().hour;
-    if (hour < 12) return 'Good morning!';
-    if (hour < 18) return 'Good afternoon!';
-    return 'Good evening!';
   }
 
   @override
@@ -226,49 +215,6 @@ class _MainScreenState extends State<MainScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: _openNewLogPage,
         child: const Icon(Icons.add),
-      ),
-    );
-  }
-
-  // Welcome message with the total number of saved study sessions.
-  Widget _buildWelcomeCard() {
-    return Card(
-      color: Theme.of(context).colorScheme.primaryContainer,
-      margin: const EdgeInsets.fromLTRB(12, 12, 12, 4),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    _greeting(),
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  const Text('Keep going, every session counts.'),
-                ],
-              ),
-            ),
-            Column(
-              children: [
-                Text(
-                  '$_totalLogs',
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(_totalLogs == 1 ? 'session' : 'sessions'),
-              ],
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -328,7 +274,7 @@ class _MainScreenState extends State<MainScreen> {
             Icon(Icons.menu_book_outlined, size: 72, color: Colors.grey.shade400),
             const SizedBox(height: 12),
             const Text(
-              'Welcome to StudyDiary!',
+              'No study logs yet',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 4),
@@ -340,9 +286,8 @@ class _MainScreenState extends State<MainScreen> {
 
     return Column(
       children: [
-        _buildWelcomeCard(),
         const Padding(
-          padding: EdgeInsets.fromLTRB(16, 8, 16, 4),
+          padding: EdgeInsets.fromLTRB(16, 12, 16, 4),
           child: Text(
             'Tap to view or edit  •  Long-press to delete',
             style: TextStyle(color: Colors.grey),
