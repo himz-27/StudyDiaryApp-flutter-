@@ -184,7 +184,7 @@ class _MainScreenState extends State<MainScreen> {
       case 1:
         return Colors.red.shade900;
       case 2:
-        return Colors.red;
+        return const Color.fromARGB(255, 238, 31, 16);
       case 3:
         return Colors.orange;
       case 4:
