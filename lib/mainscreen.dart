@@ -178,10 +178,20 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   // Low understanding is red so struggling subjects are easy to spot.
+  // Each score has its own colour: darker red means more difficulty.
   Color _understandingColor(int understanding) {
-    if (understanding <= 2) return Colors.red;
-    if (understanding == 3) return Colors.orange;
-    return Colors.green;
+    switch (understanding) {
+      case 1:
+        return Colors.red.shade900;
+      case 2:
+        return Colors.red.shade300;
+      case 3:
+        return Colors.orange;
+      case 4:
+        return Colors.green;
+      default:
+        return Colors.green.shade900;
+    }
   }
 
   // Greeting changes with the time of day on the device.
