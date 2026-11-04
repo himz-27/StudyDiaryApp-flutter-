@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// A simple welcome screen shown briefly when the app starts.
+/// A simple welcome screen will be shown briefly when the app starts.
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -31,16 +31,9 @@ class SplashScreen extends StatelessWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.all(24),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white.withValues(alpha: 0.35),
-                        blurRadius: 30,
-                        spreadRadius: 6,
-                      ),
-                    ],
                   ),
                   child: Icon(
                     Icons.school_outlined,
@@ -61,11 +54,6 @@ class SplashScreen extends StatelessWidget {
                 const Text(
                   'Track how you study your hardest subjects',
                   style: TextStyle(fontSize: 16, color: Colors.white70),
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Log  •  Rate  •  Review',
-                  style: TextStyle(fontSize: 14, color: Colors.white60),
                 ),
                 const SizedBox(height: 40),
                 const SizedBox(
