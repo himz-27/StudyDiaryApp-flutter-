@@ -379,6 +379,3 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                       ),
                       const Text('min', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                
