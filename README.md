@@ -95,7 +95,7 @@ lib/
 ## 7. Credits
 
 **Code**
-- The overall project structure and coding style (splash screen, main list screen with pagination, form screen with validation and confirmation dialog, and a singleton SQLite database class) follow the example budget app provided by my lecturer Encik Ahmad Hanis Bin Mohd Shabli. The code was rewritten for a different app idea, with a different data model and an edit feature was added.
+- The overall project structure and coding style (splash screen, main list screen with pagination, form screen with validation and confirmation dialog, and a singleton SQLite database class) follow the example budget app provided by my lecturer PROF. DR.  Ahmad Hanis Bin Mohd Shabli. The code was rewritten for a different app idea, with a different data model and an edit feature was added.
 - Flutter and the Material 3 widgets are from the Flutter framework
 - Database access uses the `sqflite` ,`path` packages from pub.dev.
 
