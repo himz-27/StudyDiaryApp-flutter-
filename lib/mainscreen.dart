@@ -184,7 +184,7 @@ class _MainScreenState extends State<MainScreen> {
       case 1:
         return Colors.red.shade900;
       case 2:
-        return Colors.red.shade300;
+        return Colors.red;
       case 3:
         return Colors.orange;
       case 4:
